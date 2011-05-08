@@ -1,0 +1,13 @@
+PACKAGE
+
+package httputil
+import "github.com/wcspromoteam/httputil"
+
+FUNCTIONS
+
+func GetCookies(r *http.Request) map[string]string
+Returns a map of cookies, with the name mapped to the value of the cookie. Additional metadata (expiration date, etc) is thrown away.
+
+func ServeFile(conn io.Writer, filePath string, req *http.Request) (info string, err os.Error)
+Serves a file, with the name given by path, to the connection conn (although it could be any io.Writer). The info string contains extra info about how the serving went, for use in the log. E.g. "file not modified". Differs from http.ServeFile in that it will *never* list directories.
+
